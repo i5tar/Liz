@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
+
+        <!-- YouTube API Script -->
+        <script src="https://www.youtube.com/iframe_api"></script>
+
     <style>
         @keyframes fadeIn {
             from {
@@ -16,6 +20,43 @@
             to {
                 opacity: 1;
             }
+        }
+
+        #quiz {
+            text-align: left;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
         }
 
         body {
@@ -99,8 +140,6 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            
-            
         }
 
         .love-box h2 {
@@ -116,6 +155,45 @@
         .love-text {
             font-size: 18px;
             padding: 10px;
+        }
+
+        .love-letter-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        /* Playlist Section Styles */
+        #playlist-section {
+            text-align: left;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        #youtube-playlist {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #youtube-playlist li {
+            margin: 10px 0;
+        }
+
+        #youtube-playlist a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* YouTube Embedded Player Styles */
+        #youtube-player-container {
+            display: none; /* Initially hidden */
+            text-align: center;
         }
     </style>
 </head>
@@ -133,15 +211,39 @@
             <p>I love you in more ways than I could ever hope to count or express. I have tried to express my love for you in as many ways as possible, and since I'm good at coding, this is a perfect way. I am creating this website as another way for me to express my undying love for you. And I dedicate it solely to you. I love you so much, Liz. I will continue to update this website with more love letters, I hope you can check here and be subject to a pleasant surprise every once in a while.</p>
         </section>
 
+        <!-- YouTube Embedded Player -->
+        <div id="youtube-player-container">
+            <!-- The embedded YouTube player will be added here -->
+        </div>
+
         <!-- Love Letter -->
         <section id="love-letter">
             <h2>First</h2>
             <h4>9/6/2023</h4>
-            <p>My dearest love,</p>
-            <p>You were my first for a lot of things, my first true love, my first confidant, my first adventure, and my first glimpse of a future filled with happiness. Every moment with you is a cherished memory, and I look forward to many more 'firsts' together. Every day with you feels like a gift. Your smile, your laughter, and your love fill my heart with happiness. I am grateful for all the moments we've shared and look forward to a future filled with even more love and adventures.</p>
-            <p>Forever yours,</p>
-            <p>Will <3</p>
+            <div id="love-letter-content">
+                <p>My dearest love,</p>
+                <p>You were my first for a lot of things, my first true love, my first confidant, my first adventure, and my first glimpse of a future filled with happiness. Every moment with you is a cherished memory, and I look forward to many more 'firsts' together. Every day with you feels like a gift. Your smile, your laughter, and your love fill my heart with happiness. I am grateful for all the moments we've shared and look forward to a future filled with even more love and adventures.</p>
+                <p>Forever yours,</p>
+                <p>Will <3</p>
+            </div>
+            <button class="love-letter-button" id="expand-button">Show More Letters</button>
         </section>
+
+        <!-- Additional Love Letters (Initially Hidden) -->
+
+        <section id="additional-love-letters" style="display: none;">
+            <section id="love-letter">
+                <h2>In progress</h2>
+                <h4>Data: 9/6/2023</h4>
+                <div id="love-letter-content">
+                    <p>Amor carissime meus,</p>
+                    <p>Primus amor meus verus, primus consiliarius meus, primus meus adventus, et primum meum aspectum futuri plenum cum felicitate. Omne momentum tecum est memoria pretiosa. Exspecto plurimos alios 'primos' nobiscum. Quotidie tecum quasi donum est. Risus tuus, risus tuus, et amor tuus cor meum felicitate implevit. Gratus sum pro omnibus momentis quae nobiscum participavimus et exspecto futurum plenum amore et adventure.</p>
+                    <p>Perpetuo tuus,</p>
+                    <p>Will <3</p>
+                </div>
+            </section>
+        </section>
+
 
         <!-- Things I Love About You -->
         <div class="love-box">
@@ -149,6 +251,33 @@
             <p id="love-text">Your beautiful smile always brightens my day.</p>
             <br>
         </div>
+
+                <!-- Playlist Section -->
+                <section id="playlist-section">
+                <h2>Our Songs</h2>
+                <ul id="youtube-playlist">
+                    <!-- Replace these with your YouTube video links -->
+                    <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_1">Song 1 - Artist 1</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_2">Song 2 - Artist 2</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_3">Song 3 - Artist 3</a></li>
+                    <!-- Add more songs as needed -->
+                </ul>
+            </section>
+
+            <div id="quiz">
+                <h2>Who is the best?</h2>
+                <form id="quiz-form">
+                    <label>
+                        <input type="radio" name="best" value="Will"> Will
+                    </label>
+                    <label>
+                        <input type="radio" name="best" value="Liz"> Liz
+                    </label>
+                    <button type="button" id="submit-button">Submit</button>
+                </form>
+                <p id="result"></p>
+            </div>
+        
 
         <!-- Love Countdown -->
         <div class="countdown-box">
@@ -160,6 +289,30 @@
     <footer>
         <p>Created with love, by Will</p>
     </footer>
+
+    <script>
+        // JavaScript for the quiz
+        const quizForm = document.getElementById('quiz-form');
+        const resultParagraph = document.getElementById('result');
+        const submitButton = document.getElementById('submit-button');
+
+        submitButton.addEventListener('click', () => {
+            const selectedAnswer = document.querySelector('input[name="best"]:checked');
+            if (!selectedAnswer) {
+                resultParagraph.textContent = 'Please select an answer.';
+            } else {
+                if (selectedAnswer.value === 'Liz') {
+                    resultParagraph.textContent = 'Correct! Liz is the best!';
+                } else {
+                    resultParagraph.textContent = 'Sorry, that\'s not correct. Try again!';
+                }
+            }
+
+            // Add the 'show' class to trigger the fade-in animation
+            resultParagraph.classList.add('show');
+        });
+    </script>
+
 
     <script>
         // Set the special date (December 25th, 2025)
@@ -226,76 +379,9 @@
         const thingsILove = [
             "You're very considerate.",
             "You're very kind.",
-            "You're super hot.",
-            "You're very generous.",
-            "You try to help me with anything you can.",
-            "Oh lord, I love every photo you send me.",
-            "I adore your thick thighs.",
-            "Your voice is enchanting.",
-            "Your humor always lifts my spirits.",
-            "Your flirting is irresistible.",
-            "Your music taste is impeccable.",
-            "I love it when you're in that mood.",
-            "I cherish how much you care.",
-            "I admire that you always put in effort.",
-            "Your energy and vibe is magnetic.",
-            "When you do that cute voice, it's so endearing.",
-            "Your playful arguments that you never really win are adorable.",
-            "When you talk about how much you want me, it's thrilling.",
-            "Receiving photos from you without asking is such a treat.",
-            "When you turn red, it's just too cute.",
-            "Your music suggestions never disappoint.",
-            "I cherish the rare moments when you show me your outfits.",
-            "Your random compliments always leave me speechless.",
-            "I find it utterly adorable when you stutter or get flustered.",
-            "Our camera time is always special.",
-            "When you act 'drunk', it's hilarious.",
-            "Despite all obstacles, I appreciate that you continue to talk to me.",
-            "Butter :)",
-            "Hearing you say 'I love you' melts my heart.",
-            "Your tired voice is inexplicably attractive.",
-            "Our deep 'talks' mean so much to me.",
-            "Your laugh is contagious.",
-            "You're so sweet, it literally melts me.",
-            "Your genuine smiles are radiant.",
-            "I can't resist when you say 'pleaseeeee'.",
-            "Receiving unexpected DMs from you praising me is heartwarming.",
-            "When you instantly answer the phone, it means a lot.",
-            "Your excitement about things is infectious.",
-            "Overall, you're such a cute person.",
-            "Daydreaming about things we'd do together based on your tales is lovely.",
-            "Your random stories always entertain me.",
-            "I cherish that you type out 'I love you' instead of 'ily'.",
-            "When you playfully argue, it's too cute.",
-            "You care about my health more than I do myself.",
-            "Your requests to sleep together are too sweet.",
-            "Even if you're pretending, I love that you care about my hobbies like coding.",
-            "Receiving your good morning and good night wishes warms my day.",
-            "Overall, you're an amazing person.",
-            "Your excitement over little things is endearing.",
-            "Your sarcasm always gets me.",
-            "Being so open with me is something I deeply appreciate.",
-            "I love that you're not shy around me.",
-            "When I flirt and you flirt back harder, it's thrilling.",
-            "Your honesty and openness mean the world.",
-            "Your playful dishonesty is always amusing.",
-            "I really like your name.",
-            "The way you say 'maybeee' always gets me.",
-            "Your plans for us are always exciting.",
-            "Sleeping on call with you is one of my favorite things ever.",
-            "Your personality is captivating.",
-            "Your quotes like 'Why be sad?', 'Hey! Happy Halloween', and 'Chicken nuggets.' are memorable.",
-            "Those endless calls mean so much.",
-            "When you double-check words with me, it's sweet.",
-            "Your effort in finding solutions to my problems is heartwarming.",
-            "The way you remember little details about me is touching.",
-            "Your unexpected interest in things like the stock market always surprises me.",
-            "That you work in a nursery is really interesting.",
-            "Your playful dirty mind always gets a laugh.",
-            "Your transparency, sharing issues with me, is something I respect a lot.",
+            // ... (all your love messages)
             "Your honesty, even undermining your own arguments, is admirable."
         ];
-
 
         let loveIndex = 0;
 
@@ -310,6 +396,91 @@
 
         // Cycle through love messages every 5 seconds
         setInterval(displayNextLove, 5000);
+
+        // Add an event listener to the expand button
+        const expandButton = document.getElementById("expand-button");
+        const additionalLoveLetters = document.getElementById("additional-love-letters");
+
+        expandButton.addEventListener("click", function () {
+            if (additionalLoveLetters.style.display === "none" || additionalLoveLetters.style.display === "") {
+                additionalLoveLetters.style.display = "block";
+                expandButton.textContent = "Hide More Letters";
+            } else {
+                additionalLoveLetters.style.display = "none";
+                expandButton.textContent = "Show More Letters";
+            }
+        });
+    </script>
+     <!-- JavaScript for Playlist Functionality -->
+     <script>
+        // ... (Your existing JavaScript for countdown, word typing, and love messages) ...
+
+        // Function to load and play a YouTube video
+        function loadYouTubeVideo(videoId) {
+            const player = new YT.Player("youtube-player-container", {
+                height: "360",
+                width: "640",
+                videoId: videoId,
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
+                }
+            });
+        }
+
+        // Function to initialize the YouTube player
+        function onPlayerReady(event) {
+            // Auto-play the first video when the player is ready
+            event.target.playVideo();
+        }
+
+        // Function to handle video state changes (e.g., when one video ends, load the next one)
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                // Get the next video link from the playlist
+                const nextVideoLink = getNextVideoLink();
+                if (nextVideoLink) {
+                    // Extract the video ID from the link and load the next video
+                    const videoId = extractVideoId(nextVideoLink);
+                    loadYouTubeVideo(videoId);
+                }
+            }
+        }
+
+        // Function to get the next video link from the playlist
+        function getNextVideoLink() {
+            const currentIndex = getCurrentVideoIndex();
+            if (currentIndex !== -1 && currentIndex + 1 < youtubePlaylist.children.length) {
+                return youtubePlaylist.children[currentIndex + 1].querySelector("a").href;
+            }
+            return null;
+        }
+
+        // Function to get the current video index
+        function getCurrentVideoIndex() {
+            const currentVideoSrc = youtubePlayerContainer.querySelector("iframe").src;
+            for (let i = 0; i < youtubePlaylist.children.length; i++) {
+                const videoLink = youtubePlaylist.children[i].querySelector("a").href;
+                const videoId = extractVideoId(videoLink);
+                if (currentVideoSrc.includes(videoId)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        // Function to extract the video ID from a YouTube video link
+        function extractVideoId(videoLink) {
+            const url = new URL(videoLink);
+            return url.searchParams.get("v");
+        }
+
+        // Load and play the first video from the playlist
+        if (youtubePlaylist.children.length > 0) {
+            const firstVideoLink = youtubePlaylist.children[0].querySelector("a").href;
+            const firstVideoId = extractVideoId(firstVideoLink);
+            loadYouTubeVideo(firstVideoId);
+        }
     </script>
 </body>
 
