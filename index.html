@@ -7,6 +7,7 @@
     <title>Liz</title>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         @keyframes fadeIn {
             from {
@@ -32,14 +33,24 @@
         }
 
         h1 {
-            font-family: 'Parisienne', cursive;
             color: white;
             font-size: 36px;
         }
 
+        .typing h1::after {
+            content: "_";
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
         #main-content {
             padding: 20px;
-            padding-bottom: 60px;
+            padding-bottom: 60px;  /* Adjust as necessary for your content */
         }
 
         #love-letter {
@@ -59,14 +70,7 @@
         footer {
             background-color: #ff6b6b;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
             color: white;
-        }
-
-        .spacer {
-            height: 100px;
         }
 
         @media (max-width: 600px) {
@@ -79,7 +83,9 @@
 
 <body>
     <header>
-        <h1>For My Amazing Girlfriend</h1>
+        <div class="typing">
+            <h1>For My Amazing <span id="changingWord">Girlfriend</span></h1>
+        </div>
     </header>
 
     <div id="main-content">
@@ -96,13 +102,49 @@
             <p>Forever yours,</p>
             <p>Will <3</p>
         </section>
-        
-        <div class="spacer"></div> <!-- Spacer div for extra space at the bottom -->
     </div>
 
     <footer>
         <p>Created with love, by Will</p>
     </footer>
+
+    <script>
+        const words = ["Girlfriend", "Lover", "Partner", "Soulmate", "Companion"];
+        let wordIndex = 0;
+
+        function typeWord() {
+            const wordSpan = document.getElementById("changingWord");
+            const currentWord = words[wordIndex];
+            let charIndex = currentWord.length;
+
+            const backspaceInterval = setInterval(() => {
+                if (charIndex > 0) {
+                    charIndex--;
+                    wordSpan.textContent = currentWord.substring(0, charIndex);
+                } else {
+                    clearInterval(backspaceInterval);
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeNextWord(words[wordIndex]);
+                }
+            }, 150);
+        }
+
+        function typeNextWord(word) {
+            let charIndex = 0;
+
+            const typeInterval = setInterval(() => {
+                if (charIndex < word.length) {
+                    charIndex++;
+                    document.getElementById("changingWord").textContent = word.substring(0, charIndex);
+                } else {
+                    clearInterval(typeInterval);
+                    setTimeout(typeWord, 5000);  // Pause for 1.5s before backspacing
+                }
+            }, 150);
+        }
+
+        setTimeout(typeWord, 5000);  // Start after 3s delay
+    </script>
 </body>
 
 </html>
