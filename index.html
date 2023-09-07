@@ -8,12 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         body {
             font-family: 'Lato', sans-serif;
             text-align: center;
             background-color: #f6f6f6;
             margin: 0;
             padding: 0;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header {
@@ -21,11 +31,8 @@
             padding: 20px;
         }
 
-        h1, h2 {
-            font-family: 'Parisienne', cursive;
-        }
-
         h1 {
+            font-family: 'Parisienne', cursive;
             color: white;
             font-size: 36px;
         }
