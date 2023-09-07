@@ -74,8 +74,8 @@
             color: white;
         }
 
-        /* Countdown Styles */
-        #countdown {
+        /* Countdown and Things I Love Styles */
+        .countdown-box {
             background-color: #ff6b6b;
             color: white;
             padding: 10px; /* Smaller padding */
@@ -83,13 +83,37 @@
             margin-top: 20px;
         }
 
-        #countdown h2 {
+        .countdown-box h2, .love-box h2 {
             font-size: 20px; /* Smaller font size */
             margin-bottom: 5px; /* Smaller margin */
         }
 
-        #countdown-timer {
+        .countdown-box p, .love-box p {
             font-size: 24px; /* Smaller font size */
+        }
+
+        /* Things I Love Styles */
+        .love-box {
+            text-align: center;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-box h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .love-text {
+            font-size: 18px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -107,6 +131,7 @@
             <p>I love you in more ways than I could ever hope to count or express. I have tried to express my love for you in as many ways as possible, and since I'm good at coding, this is a perfect way. I am creating this website as another way for me to express my undying love for you. And I dedicate it solely to you. I love you so much, Liz. I will continue to update this website with more love letters, I hope you can check here and be subject to a pleasant surprise every once in a while.</p>
         </section>
 
+        <!-- Love Letter -->
         <section id="love-letter">
             <h2>First</h2>
             <h4>9/6/2023</h4>
@@ -116,8 +141,14 @@
             <p>Will <3</p>
         </section>
 
+        <!-- Things I Love About You -->
+        <div class="love-box">
+            <h2>Things I Love About You</h2>
+            <p class="love-text">Currently in the process of coding this.</p>
+        </div>
+
         <!-- Love Countdown -->
-        <div id="countdown">
+        <div class="countdown-box">
             <h2>Countdown to us seeing each other</h2>
             <p id="countdown-timer"></p>
         </div>
@@ -129,7 +160,7 @@
 
     <script>
         // Set the special date (December 25th, 2025)
-        const specialDate = new Date("December 25, 2024 00:00:00").getTime();
+        const specialDate = new Date("December 25, 2025 00:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -150,7 +181,27 @@
         // Update the countdown every second
         setInterval(updateCountdown, 1000);
 
-        // Retained "typeNextWord" function
+        // Words to cycle through
+        const words = ["Girlfriend", "Lover", "Partner", "Soulmate", "Companion"];
+        let wordIndex = 0;
+
+        function typeWord() {
+            const wordSpan = document.getElementById("changingWord");
+            const currentWord = words[wordIndex];
+            let charIndex = currentWord.length;
+
+            const backspaceInterval = setInterval(() => {
+                if (charIndex > 0) {
+                    charIndex--;
+                    wordSpan.textContent = currentWord.substring(0, charIndex);
+                } else {
+                    clearInterval(backspaceInterval);
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeNextWord(words[wordIndex]);
+                }
+            }, 150);
+        }
+
         function typeNextWord(word) {
             let charIndex = 0;
 
@@ -167,6 +218,29 @@
 
         // Start the word typing after 5s delay
         setTimeout(typeWord, 5000);
+
+        // Love messages to cycle through
+        const thingsILove = [
+            "Your beautiful smile always brightens my day.",
+            "The way you laugh is absolutely contagious.",
+            "You're incredibly thoughtful and caring.",
+            "Your intelligence and curiosity inspire me.",
+            "You make every moment we spend together special."
+        ];
+
+        let loveIndex = 0;
+
+        function displayNextLove() {
+            const loveText = document.getElementById("love-text");
+            loveText.textContent = thingsILove[loveIndex];
+            loveIndex = (loveIndex + 1) % thingsILove.length;
+        }
+
+        // Initial call to display the first love message
+        displayNextLove();
+
+        // Cycle through love messages every 5 seconds
+        setInterval(displayNextLove, 5000);
     </script>
 </body>
 
