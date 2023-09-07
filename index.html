@@ -28,13 +28,15 @@
         }
 
         header {
-            background-color: #ff6b6b;
+        background-color: #ff6b6b;
             padding: 20px;
+            height: 100px; /* Add a fixed height to reserve space */
         }
 
         h1 {
             color: white;
             font-size: 36px;
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         .typing h1::after {
@@ -138,12 +140,12 @@
                     document.getElementById("changingWord").textContent = word.substring(0, charIndex);
                 } else {
                     clearInterval(typeInterval);
-                    setTimeout(typeWord, 5000);  // Pause for 1.5s before backspacing
+                    setTimeout(typeWord, 5000);  // Pause for 5s before backspacing
                 }
             }, 150);
         }
 
-        setTimeout(typeWord, 5000);  // Start after 3s delay
+        setTimeout(typeWord, 5000);  // Start after 5s delay
     </script>
 </body>
 
