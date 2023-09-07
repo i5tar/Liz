@@ -74,10 +74,22 @@
             color: white;
         }
 
-        @media (max-width: 600px) {
-            #love-letter {
-                padding: 10px;
-            }
+        /* Countdown Styles */
+        #countdown {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px; /* Smaller padding */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #countdown h2 {
+            font-size: 20px; /* Smaller font size */
+            margin-bottom: 5px; /* Smaller margin */
+        }
+
+        #countdown-timer {
+            font-size: 24px; /* Smaller font size */
         }
     </style>
 </head>
@@ -103,6 +115,12 @@
             <p>Forever yours,</p>
             <p>Will <3</p>
         </section>
+
+        <!-- Love Countdown -->
+        <div id="countdown">
+            <h2>Countdown to us seeing each other</h2>
+            <p id="countdown-timer"></p>
+        </div>
     </div>
 
     <footer>
@@ -110,26 +128,29 @@
     </footer>
 
     <script>
-        const words = ["Girlfriend", "Lover", "Partner", "Soulmate", "Companion"];
-        let wordIndex = 0;
+        // Set the special date (December 25th, 2025)
+        const specialDate = new Date("December 25, 2024 00:00:00").getTime();
 
-        function typeWord() {
-            const wordSpan = document.getElementById("changingWord");
-            const currentWord = words[wordIndex];
-            let charIndex = currentWord.length;
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = specialDate - now;
 
-            const backspaceInterval = setInterval(() => {
-                if (charIndex > 0) {
-                    charIndex--;
-                    wordSpan.textContent = currentWord.substring(0, charIndex);
-                } else {
-                    clearInterval(backspaceInterval);
-                    wordIndex = (wordIndex + 1) % words.length;
-                    typeNextWord(words[wordIndex]);
-                }
-            }, 150);
+            if (timeRemaining <= 0) {
+                document.getElementById("countdown-timer").innerHTML = "We Meet!";
+            } else {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
         }
 
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Retained "typeNextWord" function
         function typeNextWord(word) {
             let charIndex = 0;
 
@@ -144,7 +165,8 @@
             }, 150);
         }
 
-        setTimeout(typeWord, 5000);  // Start after 5s delay
+        // Start the word typing after 5s delay
+        setTimeout(typeWord, 5000);
     </script>
 </body>
 
