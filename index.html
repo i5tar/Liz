@@ -22,6 +22,34 @@
             }
         }
 
+                /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .countdown-box,
+        body.dark-mode .love-box h2,
+        body.dark-mode button,
+        body.dark-mode .love-letter-button {
+            background-color: #333;
+        }
+
+        body.dark-mode #quiz,
+        body.dark-mode #love-letter,
+        body.dark-mode .love-box,
+        body.dark-mode #playlist-section {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        body.dark-mode a {
+            color: #bb86fc;
+        }
+
+
         #quiz {
             text-align: left;
             padding: 20px;
@@ -195,10 +223,22 @@
             display: none; /* Initially hidden */
             text-align: center;
         }
+        
+        #darkModeToggle {
+            margin: 5px;  /* Add a slight margin */
+        }
+
+
     </style>
 </head>
 
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Add this line -->
+
 <body>
+    <button id="darkModeToggle" style="position: fixed; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #000000; cursor: pointer;">
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
         <div class="typing">
             <h1>For My Amazing <span id="changingWord">Girlfriend</span></h1>
@@ -256,10 +296,10 @@
                 <section id="playlist-section">
                 <h2>Our Songs</h2>
                 <ul id="youtube-playlist">
-                    <!-- Replace these with your YouTube video links -->
+                    <!-- Replace these with YouTube video links -->
                     <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_1">Song 1 - Artist 1</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_2">Song 2 - Artist 2</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_3">Song 3 - Artist 3</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=aISJJVHMIiw">Sydney Rose - Turning Page</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=N9mOlc9IBQA">Falling for you - Justine Bieber, Jaden 3</a></li>
                     <!-- Add more songs as needed -->
                 </ul>
             </section>
@@ -313,6 +353,32 @@
         });
     </script>
 
+<script>
+    // Get the toggle button
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    // Check for dark mode preference in local storage
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon when in dark mode
+    }
+
+        // Add an event listener to the toggle button
+        darkModeToggle.addEventListener('click', () => {
+            // Toggle the dark-mode class on the body
+            document.body.classList.toggle('dark-mode');
+
+            // Change the icon and its color based on the mode
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon when in dark mode
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change back to moon icon when in light mode
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+
+</script>
 
     <script>
         // Set the special date (December 25th, 2025)
