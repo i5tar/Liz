@@ -334,7 +334,7 @@
     </div>
 
     <footer>
-        <p>Created with love, by Will</p>
+        <p>Created with <span id="specialWord">love</span>, by Will</p>
     </footer>
 
     <script>
@@ -388,6 +388,11 @@
 </script>
 
     <script>
+
+        document.getElementById("specialWord").addEventListener("click", function() {
+            alert("I love you more, kid <3");
+        });
+
         // Set the special date (December 25th, 2025)
         const specialDate = new Date("December 25, 2024 00:00:00").getTime();
 
