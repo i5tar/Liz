@@ -7,10 +7,7 @@
     <title>Liz</title>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
-
-        <!-- YouTube API Script -->
-        <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <style>
         @keyframes fadeIn {
@@ -22,7 +19,6 @@
             }
         }
 
-                /* Dark mode styles */
         body.dark-mode {
             background-color: #121212;
             color: #ffffff;
@@ -104,7 +100,7 @@
         h1 {
             color: white;
             font-size: 28px;
-            white-space: nowrap; /* Prevent text from wrapping */
+            white-space: nowrap;
         }
 
         .typing h1::after {
@@ -120,7 +116,7 @@
 
         #main-content {
             padding: 20px;
-            padding-bottom: 60px;  /* Adjust as necessary for your content */
+            padding-bottom: 60px;
         }
 
         #love-letter {
@@ -130,10 +126,11 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
         }
 
         #love-letter:hover {
-            transform: translateY(-5px);
+            transform: translateY(-0px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
@@ -143,22 +140,23 @@
             color: white;
         }
 
-        /* Countdown and Things I Love Styles */
         .countdown-box {
             background-color: #ff6b6b;
             color: white;
-            padding: 10px; /* Smaller padding */
+            padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
         }
 
         .countdown-box h2, .love-box h2 {
-            font-size: 20px; /* Smaller font size */
-            margin-bottom: 5px; /* Smaller margin */
+            font-size: 20px;
+            margin-bottom: 5px;
+            text-align: center;
         }
 
         .countdown-box p, .love-box p {
-            font-size: 24px; /* Smaller font size */
+            font-size: 24px;
+            text-align: center;
         }
 
         /* Things I Love Styles */
@@ -219,22 +217,19 @@
             color: #333;
         }
 
-        /* YouTube Embedded Player Styles */
         #youtube-player-container {
-            display: none; /* Initially hidden */
+            display: none;
             text-align: center;
         }
 
         #darkModeToggle {
-            margin: 5px;  /* Add a slight margin */
+            margin: 5px;
+            z-index: 9999;
         }
 
         body.dark-mode #youtube-playlist a {
-            color: #ffffff; /* white color */
+            color: #ffffff;
         }
-
-
-
     </style>
 </head>
 
@@ -258,12 +253,7 @@
             <p>I love you in more ways than I could ever hope to count or express. I have tried to express my love for you in as many ways as possible, and since I'm good at coding, this is a perfect way. I am creating this website as another way for me to express my undying love for you. And I dedicate it solely to you. I love you so much, Liz. I will continue to update this website with more love letters, I hope you can check here and be subject to a pleasant surprise every once in a while.</p>
         </section>
 
-        <!-- YouTube Embedded Player -->
-        <div id="youtube-player-container">
-            <!-- The embedded YouTube player will be added here -->
-        </div>
-
-        <!-- Love Letter -->
+        <!-- Love Letters -->
         <section id="love-letter">
             <h2>First</h2>
             <h4>9/6/2023</h4>
@@ -274,7 +264,7 @@
                 <p>Will <3</p>
             </div>
             <button class="love-letter-button" id="expand-button">Show More Letters</button>
-
+        </section>
         <!-- Additional Love Letters (Initially Hidden) -->
         
         <section id="additional-love-letters" style="display: none;">
@@ -283,18 +273,15 @@
                 <h4>10/6/2023</h4>
                 <div id="love-letter-content">
                     <p>My love,</p>
-                    <p>Even in our most difficult moments, know that you’re never alone. I am here, always, to hold you close, wipe away your tears, and face any challenge with you. Your heart has been my refuge, and I promise to be yours.</p>
+                    <p>Even in our most difficult moments, know that you’re never alone. There will always be someone out there loving you, and thinking of you. I am here, always, to hold you close, wipe away your tears, and face any challenge with you. Your heart has been my refuge, and I promise to be yours. Like glue, we'll stick together through anything. No matter who takes sides against us, our love is unbreakable.</p>
                     <p>With all my love,</p>
                     <p>Will <3</p>
                 </div>
             </section>
-        </section>
 
-
-        <section id="additional-love-letters" style="display: none;">
             <section id="love-letter">
                 <h2>In progress</h2>
-                <h4>Data: 9/6/2023</h4>
+                <h4>Data: 10/8/2023</h4>
                 <div id="love-letter-content">
                     <p>Amor carissime meus,</p>
                     <p>Primus amor meus verus, primus consiliarius meus, primus meus adventus, et primum meum aspectum futuri plenum cum felicitate. Omne momentum tecum est memoria pretiosa. Exspecto plurimos alios 'primos' nobiscum. Quotidie tecum quasi donum est. Risus tuus, risus tuus, et amor tuus cor meum felicitate implevit. Gratus sum pro omnibus momentis quae nobiscum participavimus et exspecto futurum plenum amore et adventure.</p>
@@ -316,7 +303,6 @@
                 <section id="playlist-section">
                 <h2>Our Songs</h2>
                 <ul id="youtube-playlist">
-                    <!-- Replace these with YouTube video links -->
                     <li><a href="https://www.youtube.com/watch?v=W8a4sUabCUo">Dandelions - Ruth B.</a></li>
                     <li><a href="https://www.youtube.com/watch?v=aISJJVHMIiw">Turning Page - Sydney Rose</a></li>
                     <li><a href="https://www.youtube.com/watch?v=N9mOlc9IBQA">Falling for you - Justine Bieber, Jaden 3</a></li>
@@ -351,7 +337,6 @@
     </footer>
 
     <script>
-        // JavaScript for the quiz
         const quizForm = document.getElementById('quiz-form');
         const resultParagraph = document.getElementById('result');
         const submitButton = document.getElementById('submit-button');
@@ -368,32 +353,26 @@
                 }
             }
 
-            // Add the 'show' class to trigger the fade-in animation
             resultParagraph.classList.add('show');
         });
     </script>
 
 <script>
-    // Get the toggle button
     const darkModeToggle = document.getElementById('darkModeToggle');
 
-    // Check for dark mode preference in local storage
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon when in dark mode
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
 
-        // Add an event listener to the toggle button
         darkModeToggle.addEventListener('click', () => {
-            // Toggle the dark-mode class on the body
             document.body.classList.toggle('dark-mode');
 
-            // Change the icon and its color based on the mode
             if (document.body.classList.contains('dark-mode')) {
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change to sun icon when in dark mode
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
                 localStorage.setItem('dark-mode', 'enabled');
             } else {
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change back to moon icon when in light mode
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
                 localStorage.setItem('dark-mode', 'disabled');
             }
         });
@@ -406,8 +385,7 @@
             alert("I love you more, kid <3");
         });
 
-        // Set the special date (December 25th, 2025)
-        const specialDate = new Date("December 25, 2024 00:00:00").getTime();
+        const specialDate = new Date("August 10, 2024 00:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -423,12 +401,11 @@
 
                 document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
+        
         }
 
-        // Update the countdown every second
         setInterval(updateCountdown, 1000);
 
-        // Words to cycle through
         const words = ["Girlfriend", "Lover", "Partner", "Soulmate", "Companion"];
         let wordIndex = 0;
 
@@ -458,13 +435,13 @@
                     document.getElementById("changingWord").textContent = word.substring(0, charIndex);
                 } else {
                     clearInterval(typeInterval);
-                    setTimeout(typeWord, 5000);  // Pause for 5s before backspacing
+                    setTimeout(typeWord, 10000);  // Pause for 10s before backspacing
                 }
             }, 150);
         }
 
-        // Start the word typing after 5s delay
-        setTimeout(typeWord, 5000);
+        // Start the word typing after 10s delay
+        setTimeout(typeWord, 10000);
 
         // Love messages to cycle through
         const thingsILove = [
@@ -553,7 +530,6 @@
         // Cycle through love messages every 5 seconds
         setInterval(displayNextLove, 5000);
 
-        // Add an event listener to the expand button
         const expandButton = document.getElementById("expand-button");
         const additionalLoveLetters = document.getElementById("additional-love-letters");
 
@@ -566,77 +542,6 @@
                 expandButton.textContent = "Show More Letters";
             }
         });
-    </script>
-     <!-- JavaScript for Playlist Functionality -->
-     <script>
-        // ... (Your existing JavaScript for countdown, word typing, and love messages) ...
-
-        // Function to load and play a YouTube video
-        function loadYouTubeVideo(videoId) {
-            const player = new YT.Player("youtube-player-container", {
-                height: "360",
-                width: "640",
-                videoId: videoId,
-                events: {
-                    onReady: onPlayerReady,
-                    onStateChange: onPlayerStateChange
-                }
-            });
-        }
-
-        // Function to initialize the YouTube player
-        function onPlayerReady(event) {
-            // Auto-play the first video when the player is ready
-            event.target.playVideo();
-        }
-
-        // Function to handle video state changes (e.g., when one video ends, load the next one)
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.ENDED) {
-                // Get the next video link from the playlist
-                const nextVideoLink = getNextVideoLink();
-                if (nextVideoLink) {
-                    // Extract the video ID from the link and load the next video
-                    const videoId = extractVideoId(nextVideoLink);
-                    loadYouTubeVideo(videoId);
-                }
-            }
-        }
-
-        // Function to get the next video link from the playlist
-        function getNextVideoLink() {
-            const currentIndex = getCurrentVideoIndex();
-            if (currentIndex !== -1 && currentIndex + 1 < youtubePlaylist.children.length) {
-                return youtubePlaylist.children[currentIndex + 1].querySelector("a").href;
-            }
-            return null;
-        }
-
-        // Function to get the current video index
-        function getCurrentVideoIndex() {
-            const currentVideoSrc = youtubePlayerContainer.querySelector("iframe").src;
-            for (let i = 0; i < youtubePlaylist.children.length; i++) {
-                const videoLink = youtubePlaylist.children[i].querySelector("a").href;
-                const videoId = extractVideoId(videoLink);
-                if (currentVideoSrc.includes(videoId)) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        // Function to extract the video ID from a YouTube video link
-        function extractVideoId(videoLink) {
-            const url = new URL(videoLink);
-            return url.searchParams.get("v");
-        }
-
-        // Load and play the first video from the playlist
-        if (youtubePlaylist.children.length > 0) {
-            const firstVideoLink = youtubePlaylist.children[0].querySelector("a").href;
-            const firstVideoId = extractVideoId(firstVideoLink);
-            loadYouTubeVideo(firstVideoId);
-        }
     </script>
 </body>
 
