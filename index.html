@@ -230,6 +230,85 @@
         body.dark-mode #youtube-playlist a {
             color: #ffffff;
         }
+
+        .body-bg-1 {
+            background-image: url('1.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+
+        .body-bg-2 {
+            background-image: url('2.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-2 {
+            background-image: url('2.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-3 {
+            background-image: url('3.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-4 {
+            background-image: url('4.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-5 {
+            background-image: url('5.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-6 {
+            background-image: url('6.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-7 {
+            background-image: url('7.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-8 {
+            background-image: url('8.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-9 {
+            background-image: url('9.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-10 {
+            background-image: url('10.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-11 {
+            background-image: url('11.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
+
+        .body-bg-12 {
+            background-image: url('12.jpg');
+            background-size: cover; /* Ensures the image covers the entire element */
+            background-repeat: no-repeat; /* Prevents image repetition */
+        }
     </style>
 </head>
 
@@ -241,6 +320,11 @@
     <button id="darkModeToggle" style="position: fixed; bottom: 10px; right: 10px; background: none; border: none; font-size: 24px; background-color: rgba(220, 220, 220, 0.7); color: #000000; cursor: pointer;">
         <i class="fas fa-moon"></i>
     </button>
+
+    <button id="backgroundImageToggle" style="position: fixed; bottom: 10px; left: 10px; background: none; border: none; font-size: 24px; background-color: rgba(220, 220, 220, 0.7); color: #000000; cursor: pointer;">
+        Change Background
+    </button>
+    
     <header>
         <div class="typing">
             <h1>For My Amazing <span id="changingWord">Girlfriend</span></h1>
@@ -355,6 +439,26 @@
 
             resultParagraph.classList.add('show');
         });
+
+        const backgroundImageToggle = document.getElementById('backgroundImageToggle');
+        let currentBgClass = 'body-bg-1'; // Initial background image class
+
+        backgroundImageToggle.addEventListener('click', () => {
+            // Remove the current background image class
+            document.body.classList.remove(currentBgClass);
+
+            // Increment the background class index (1 to 12) in a cyclic manner
+            const numBgClasses = 12;
+            let newIndex = (parseInt(currentBgClass.split('-')[2]) % numBgClasses) + 1;
+            currentBgClass = `body-bg-${newIndex}`;
+
+            // Apply the new background image class
+            document.body.classList.add(currentBgClass);
+        });
+
+        // Initially, set the background image based on the currentBgClass
+        document.body.classList.add(currentBgClass);
+
     </script>
 
 <script>
@@ -544,5 +648,4 @@
         });
     </script>
 </body>
-
 </html>
