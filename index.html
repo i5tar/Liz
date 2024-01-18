@@ -488,27 +488,30 @@
         document.getElementById("specialWord").addEventListener("click", function() {
             alert("I love you more, kid <3");
         });
-
+        
         const specialDate = new Date("May 25, 2024 10:30:00").getTime();
-
+        
         function updateCountdown() {
             const now = new Date().getTime();
             const timeRemaining = specialDate - now;
-
+        
             if (timeRemaining <= 0) {
                 document.getElementById("countdown-timer").innerHTML = "We Meet!";
             } else {
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const years = Math.floor(timeRemaining / (1000 * 60 * 60 * 24 * 365));
+                const months = Math.floor(timeRemaining % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24 * 30));
+                const weeks = Math.floor(timeRemaining % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24 * 7));
+                const days = Math.floor(timeRemaining % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
         
+                document.getElementById("countdown-timer").innerHTML = `${years}y ${months}mo ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
         }
-
+        
         setInterval(updateCountdown, 1000);
+
 
         const words = ["Girlfriend", "Lover", "Partner", "Soulmate", "Companion"];
         let wordIndex = 0;
